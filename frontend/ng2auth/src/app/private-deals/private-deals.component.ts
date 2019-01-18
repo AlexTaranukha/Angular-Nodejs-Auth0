@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Deal } from '../deal';
 
@@ -11,7 +11,7 @@ import { DealService } from '../deal.service';
   styleUrls: ['./private-deals.component.css']
 })
 
-export class PrivateDealsComponent implements OnInit {
+export class PrivateDealsComponent implements OnInit, OnDestroy {
 
   dealsSub: Subscription;
   privateDeals: Deal[];
