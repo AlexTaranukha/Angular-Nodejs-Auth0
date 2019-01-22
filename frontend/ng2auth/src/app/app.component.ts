@@ -22,7 +22,7 @@ import { AuthService } from './auth.service'
             <a *ngIf="!authService.isLoggedIn" (click)="authService.login()">Log In</a>
           </li>
           <li>
-            <a *ngIf="!authService.isLoggedIn" (click)="authService.logout()">Log Out</a>
+            <a *ngIf="authService.isLoggedIn" (click)="authService.logout()">Log Out</a>
           </li>
         </ul>
       </nav>

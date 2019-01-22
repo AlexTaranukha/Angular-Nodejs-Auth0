@@ -32,6 +32,7 @@ export class AuthService {
   }
 
   handleLoginCallback() {
+    console.error(`handleLoginCallback`);
     this.auth0.parseHash((err, authResult) => {
       if (authResult && authResult.accessToken) {
         window.location.hash ='';
@@ -75,6 +76,7 @@ export class AuthService {
   }
 
   get isLoggedIn(): boolean {
+    console.error(`isLoggedIn`);
     return Date.now()< this.expiresAt && this.authenticated;
   }
 

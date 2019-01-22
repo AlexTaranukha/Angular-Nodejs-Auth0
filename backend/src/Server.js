@@ -20,7 +20,7 @@ const authCheck = jwt({
     jwksRequestsPerMinute: 5,
     jwksUri: "https://ataranukha.auth0.com/.well-known/jwks.json"
   }),
-  audience: '{http://localhost:3001/}',
+  audience: "{http://localhost:3001/}",
   issuer: "{ataranukha@auth0.com}",
   algorithm: ['RS256']
 });

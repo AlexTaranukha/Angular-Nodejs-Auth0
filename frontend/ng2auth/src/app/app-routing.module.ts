@@ -13,14 +13,14 @@ const routes: Routes = [
   },
   {
     path: 'deals',
-    component: PublicDealsComponent,
-    canActivate: [
-      AuthGuard
-    ]
+    component: PublicDealsComponent
   },
   {
     path: 'special',
-    component: PrivateDealsComponent
+    component: PrivateDealsComponent,
+    canActivate: [
+      AuthGuard
+    ]
   },
   {
     path: 'callback',
