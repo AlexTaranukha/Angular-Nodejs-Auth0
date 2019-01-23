@@ -19,7 +19,8 @@ import { AuthService } from './auth.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     DealService,

@@ -36,6 +36,6 @@ export class DealService {
   }
 
   purchase(item) {
-    alert('You bought the: ${item.name}');
+    alert(`You bought the: ${item.name}`);
   }
 }

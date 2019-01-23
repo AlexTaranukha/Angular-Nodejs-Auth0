@@ -46,7 +46,9 @@ export class AuthService {
 
   getAccessToken() {
     this.auth0.checkSession({}, (err, authResult) => {
+      console.error('authRessult', authResult);
       if (authResult && authResult.accessToken) {
+        console.error('getUserInfo');
         this.getUserInfo(authResult);
       }
     });
@@ -54,6 +56,7 @@ export class AuthService {
 
   getUserInfo(authResult) {
     // use access token to retrieve user's profile and set checkSession
+    console.error('userInfo');
     this.auth0.client.userInfo(authResult.accessToken, (err, profile) => {
       if (profile) {
         this._setSession(authResult, profile);
@@ -62,22 +65,22 @@ export class AuthService {
   }
 
   private _setSession(authResult, profile) {
+    console.error('_set Session');
     this.expiresAt = authResult.expiresIn * 1000 + Date.now();
-    this.accessToken = authResult.accessTOken;
+    this.accessToken = authResult.accessToken;
     this.userProfile = profile;
     this.authenticated = true;
   }
 
   logout() {
     this.auth0.logout({
-      returnTo: 'http://locaohost:4200',
+      returnTo: 'http://localhost:4200',
       clientID: environment.auth.clientID
     });
   }
 
   get isLoggedIn(): boolean {
-    console.error(`isLoggedIn`);
-    return Date.now()< this.expiresAt && this.authenticated;
+    return (Date.now() < this.expiresAt) && this.authenticated;
   }
 
 }
